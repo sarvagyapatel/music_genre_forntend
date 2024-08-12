@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 
 function App() {
@@ -41,23 +41,23 @@ function App() {
   };
 
   return (
-    <div className="w-full h-screen bg-blue-800 text-white font-semibold flex flex-col items-center justify-center">
-      <div className="App flex flex-col items-center justify-center gap-2">
-        <h1 className="text-4xl mb-5">Music Genre Predictor</h1>
+    <div className="w-full h-screen bg-blue-900 text-neutral-800 font-semibold flex flex-col items-center justify-center">
+      <div className="App flex flex-col items-center justify-center gap-2 bg-white p-8 rounded-3xl shadow-2xl">
+        <h1 className="text-4xl mb-5 font-bold text-neutral-700">Music Genre Predictor</h1>
         <form onSubmit={handleSubmit} className="flex flex-row gap-2 items-center justify-center">
-          <input type="file" onChange={handleFileChange} />
-          <button type="submit" className="p-2 px-3 bg-blue-900 rounded-xl">Predict Genre</button>
+          <input type="file" onChange={handleFileChange} className="text-blue-900 text-lg font-semibold" />
+          <button type="submit" className="p-2 px-3 bg-blue-900 rounded-xl text-white text-lg shadow-xl">Predict Genre</button>
         </form>
         {audioUrl && (
-        <div className="mb-5">
+        <div className="mb-5 flex flex-col items-center justify-center mt-4 ">
           <h2>Audio Preview:</h2>
-          <audio controls>
+          <audio controls className="">
             <source src={audioUrl} type="audio/mpeg" />
             Your browser does not support the audio element.
           </audio>
         </div>
       )}
-        {prediction && <h2 className="p-2 px-3 bg-neutral-700 rounded-full text-2xl">Predicted Genre: {prediction.toUpperCase()}</h2>}
+        {prediction && <h2 className="p-2 px-3 bg-blue-900 text-white rounded-full text-2xl">Predicted Genre: {prediction.toUpperCase()}</h2>}
       </div>
     </div>
   );
